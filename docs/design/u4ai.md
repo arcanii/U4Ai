@@ -91,11 +91,13 @@ the Swift tests' JSON, so a change in the API shows in both.
 
 ## Updates
 
-As Flow does them. For now with the key that signs U4Claude's DMG (its
-public half is `SUPublicEDKey` in the Mac app's `Config/Info.plist`, here
-`UPDATE_PUBLIC_KEY`); before the first release, the user chooses between
-keeping it and giving U4Ai a key of its own, as Flow has its own (the
-backlog).
+As Flow does them, with the key that signs U4Claude's DMG (its public
+half is `SUPublicEDKey` in the Mac app's `Config/Info.plist`, here
+`UPDATE_PUBLIC_KEY`), kept for U4Ai rather than a key of its own (the
+user's word, 2026-11-25: "Keep U4Claude's"), so the Mac signs U4Ai's
+releases with what it already has. Every copy released trusts it for good:
+changing it later means each user installs a release with the new key by
+hand.
 
 - **Windows: WinSparkle** (0.9.3, vendored), loaded from beside
   `u4ai.exe` at run time. It reads `appcast-windows.xml`, checks the

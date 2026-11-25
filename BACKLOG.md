@@ -37,9 +37,8 @@ is built is [docs/design/u4ai.md](docs/design/u4ai.md).
 
 ## Before the first release
 
-- **The update key**: keep U4Claude's (the Mac app's `SUPublicEDKey`, now
-  `UPDATE_PUBLIC_KEY`), or give U4Ai a key of its own, as Flow has its own,
-  made on the Mac with Sparkle's `generate_keys --account U4Ai`.
+(The update key is decided: U4Claude's, kept. docs/design/u4ai.md, Updates.)
+
 - **An icon of its own**: `assets/icon/` is U4Claude's for now.
 - **A try on Windows**: the tray, its balloons, Start at login and
   WinSparkle have only been type-checked from Linux, and `release.ps1`,
