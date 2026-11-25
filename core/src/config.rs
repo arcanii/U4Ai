@@ -39,13 +39,15 @@ pub struct Settings {
     pub refresh: Mode,
     /// Tell of a limit at 90% and of its reset.
     pub alerts: bool,
+    /// The outer ring's percentage drawn in the tray's icon.
+    pub percent_in_icon: bool,
     /// A language's code, or "auto" for the system's.
     pub language: String,
 }
 
 impl Default for Settings {
     fn default() -> Settings {
-        Settings { accounts: Vec::new(), current: None, refresh: Mode::Smart, alerts: true, language: crate::i18n::AUTO.into() }
+        Settings { accounts: Vec::new(), current: None, refresh: Mode::Smart, alerts: true, percent_in_icon: true, language: crate::i18n::AUTO.into() }
     }
 }
 
@@ -140,9 +142,11 @@ mod tests {
         s.save(&dir).unwrap();
         assert_eq!(Settings::load(&dir), s);
         assert!(std::fs::read_to_string(dir.join(FILE)).unwrap().contains(r#""provider": "claude""#));
-        // A file from a later version, with keys this one hasn't got.
+        // A file from a later version, with keys this one hasn't got, and
+        // one from before a key was added, which takes its default.
         std::fs::write(dir.join(FILE), r#"{"alerts": false, "someday": 1}"#).unwrap();
-        assert!(!Settings::load(&dir).alerts);
+        let read = Settings::load(&dir);
+        assert!(!read.alerts && read.percent_in_icon);
         std::fs::write(dir.join(FILE), "{broken").unwrap();
         assert_eq!(Settings::load(&dir), Settings::default());
         assert_eq!(std::fs::read_to_string(dir.join("settings.json.unread")).unwrap(), "{broken");

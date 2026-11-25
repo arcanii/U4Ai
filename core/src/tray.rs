@@ -43,6 +43,8 @@ pub struct Status<'a> {
     pub updater: Updater,
     pub update: Option<&'a UpdateState>,
     pub start_at_login: Option<bool>,
+    /// The outer ring's percentage drawn in the icon.
+    pub percent_in_icon: bool,
     pub now: Timestamp,
 }
 
@@ -76,14 +78,16 @@ fn row(label: &str, limit: &Limit, now: Timestamp) -> String {
 }
 
 /// The rings for a reading: the short window outside and the long one
-/// inside, or the long one alone where there's no short one.
-pub fn rings(reading: Option<&Reading>) -> Rings {
+/// inside, or the long one alone where there's no short one; with
+/// `percent`, the outer one's percentage in the middle.
+pub fn rings(reading: Option<&Reading>, percent: bool) -> Rings {
     let Some(reading) = reading else { return Rings::default() };
     let ring = |limit: Limit, color: fn(f64) -> crate::icon::Rgb| Ring { fill: limit.percent / 100.0, color: color(limit.percent) };
     let long = reading.first(Window::Long).map(|m| ring(m.limit, seven_day_color));
+    let number = reading.primary().filter(|_| percent).map(|m| m.limit.percent.clamp(0.0, 100.0).round() as u32);
     match reading.first(Window::Short) {
-        Some(short) => Rings { outer: Some(ring(short.limit, five_hour_color)), inner: long },
-        None => Rings { outer: long, inner: None },
+        Some(short) => Rings { outer: Some(ring(short.limit, five_hour_color)), inner: long, number },
+        None => Rings { outer: long, inner: None, number },
     }
 }
 
@@ -154,6 +158,7 @@ pub fn view(s: &Status) -> TrayView {
         menu.push(Entry::Item { label: tf("menu.sign_out", &[("account", &account.name)]), action: Action::SignOut, enabled: true });
     }
     menu.push(Entry::Separator);
+    menu.push(Entry::Check { label: t("menu.show_percent").into(), action: Action::ShowPercent, checked: s.percent_in_icon });
     if let Some(on) = s.start_at_login {
         menu.push(Entry::Check { label: t("menu.start_at_login").into(), action: Action::StartAtLogin, checked: on });
     }
@@ -167,7 +172,7 @@ pub fn view(s: &Status) -> TrayView {
 
     let mut tooltip = lines;
     tooltip.extend(notes);
-    TrayView { rings: rings(s.reading), title: crate::APP_NAME.into(), tooltip, menu }
+    TrayView { rings: rings(s.reading, s.percent_in_icon), title: crate::APP_NAME.into(), tooltip, menu }
 }
 
 #[cfg(test)]
@@ -201,7 +206,19 @@ mod tests {
     }
 
     fn status<'a>(accounts: &'a [Account], reading: Option<&'a Reading>) -> Status<'a> {
-        Status { accounts, current: (!accounts.is_empty()).then_some(0), reading, error: None, loading: false, signing_in: false, updater: Updater::None, update: None, start_at_login: None, now: now() }
+        Status {
+            accounts,
+            current: (!accounts.is_empty()).then_some(0),
+            reading,
+            error: None,
+            loading: false,
+            signing_in: false,
+            updater: Updater::None,
+            update: None,
+            start_at_login: None,
+            percent_in_icon: true,
+            now: now(),
+        }
     }
 
     fn texts(view: &TrayView) -> Vec<String> {
@@ -232,11 +249,22 @@ mod tests {
         assert_eq!(view.tooltip, texts(&view)[..5]);
         assert_eq!(
             actions(&view),
-            [(Action::Refresh, true), (Action::SignIn(Provider::Claude), true), (Action::SignOut, true), (Action::OpenStatus(Provider::Claude), true), (Action::Quit, true)]
+            [
+                (Action::Refresh, true),
+                (Action::SignIn(Provider::Claude), true),
+                (Action::SignOut, true),
+                (Action::ShowPercent, true),
+                (Action::OpenStatus(Provider::Claude), true),
+                (Action::Quit, true)
+            ]
         );
         let items: Vec<&str> = view.menu.iter().filter_map(|e| if let Entry::Item { label, .. } = e { Some(label.as_str()) } else { None }).collect();
         assert!(items.contains(&"Sign in with Claude…") && items.contains(&"Claude Status"), "{items:?}");
         assert!(view.rings.inner.is_some() && (view.rings.outer.unwrap().fill - 0.424).abs() < 1e-9);
+        assert_eq!(view.rings.number, Some(42), "the 5-hour window's, rounded");
+        let off = super::view(&Status { percent_in_icon: false, ..status(accounts, Some(&reading)) });
+        assert_eq!(off.rings.number, None);
+        assert!(actions(&off).contains(&(Action::ShowPercent, false)));
     }
 
     #[test]
@@ -295,7 +323,8 @@ mod tests {
     fn without_a_short_window_the_long_one_takes_the_outer_ring() {
         let mut reading = reading();
         reading.meters.remove(0);
-        let rings = rings(Some(&reading));
-        assert_eq!((rings.outer.unwrap().fill, rings.inner), (0.76, None));
+        let rings = rings(Some(&reading), true);
+        assert_eq!((rings.outer.unwrap().fill, rings.inner, rings.number), (0.76, None, Some(76)));
+        assert_eq!(super::rings(None, true), Rings::default(), "nothing read, no number");
     }
 }

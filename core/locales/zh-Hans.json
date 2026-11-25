@@ -14,6 +14,7 @@
     "check_updates": "检查更新",
     "quit": "退出 U4Ai",
     "refresh": "刷新",
+    "show_percent": "在图标中显示百分比",
     "sign_in": "使用 {provider} 登录…",
     "sign_out": "退出 {account}",
     "start_at_login": "登录时自动启动",

@@ -17,6 +17,8 @@ pub enum Action {
     Switch(usize),
     SignOut,
     StartAtLogin,
+    /// The outer ring's percentage in the icon, on or off.
+    ShowPercent,
     CheckUpdates,
     InstallUpdate,
     /// Start the copy an update put in place, and quit.

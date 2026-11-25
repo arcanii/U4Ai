@@ -276,6 +276,10 @@ impl App {
                     self.platform.notify(crate::APP_NAME, &err);
                 }
             }
+            Action::ShowPercent => {
+                self.settings.percent_in_icon = !self.settings.percent_in_icon;
+                self.save();
+            }
             Action::CheckUpdates => self.platform.check_updates(false),
             Action::InstallUpdate => self.platform.install_update(),
             Action::Restart => {
@@ -356,6 +360,7 @@ impl App {
             updater: self.platform.updater(),
             update: update.as_ref(),
             start_at_login: self.platform.start_at_login(),
+            percent_in_icon: self.settings.percent_in_icon,
             now: Timestamp::now(),
         };
         let view = tray::view(&status);
@@ -471,6 +476,8 @@ mod tests {
         app.act(Action::Switch(0));
         assert_eq!((app.current().unwrap().id.as_str(), app.reading.is_none(), app.error.is_none()), ("a", true, true));
         assert_eq!(Settings::load(&dir).current.as_deref(), Some("claude:a"), "saved");
+        app.act(Action::ShowPercent);
+        assert!(!Settings::load(&dir).percent_in_icon, "turned off, and saved");
         app.act(Action::OpenStatus(Provider::Claude));
         app.act(Action::Quit);
         assert!(app.quit);

@@ -22,8 +22,10 @@ rewrite in Rust that follows it. On a Mac, use U4Claude.
 ## What it does
 
 - **Two rings in the tray**, as the Mac's: the 5-hour window outside (green,
-  orange from 70%, red from 90%) and the 7-day inside. On a plan without a
-  5-hour window, the 7-day takes the outer ring.
+  orange from 70%, red from 90%) and the 7-day inside, with the outer one's
+  percentage in the middle (the menu's "Show percentage in the icon" turns
+  it off). On a plan without a 5-hour window, the 7-day takes the outer
+  ring.
 - **A menu** with whose usage it is, each limit and how long until it
   starts again, Refresh, your accounts, Sign in with Claude, Sign out,
   Start at login, updates, Claude Status and Quit.

@@ -68,7 +68,9 @@ U4AI_SAY_UPDATES=1 cargo run -- --version
   `secrets.rs`: each account's secret in the credential store, in pieces
   where long.
   `config.rs`: `settings.json`. `icon.rs`: the rings drawn in code at any
-  size. `feed.rs`: Sparkle's appcast and the Ed25519 check. `i18n.rs` and
+  size, and the outer one's percentage in a pixel font of its own on whole
+  pixels (`docs/design/tray-numbers.md`; `U4AI_ICON_PICTURES=<dir>` has a
+  test write icons out as raw RGBA). `feed.rs`: Sparkle's appcast and the Ed25519 check. `i18n.rs` and
   `core/locales/*.json`: every word the user reads, five languages; the
   tests check every locale has every key with the same placeholders, and
   that every `"section.key"` literal in the sources exists.

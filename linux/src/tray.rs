@@ -139,7 +139,7 @@ mod tests {
 
     #[test]
     fn the_icon_goes_as_argb_and_words_keep_their_underscores() {
-        let rings = Rings { outer: Some(Ring { fill: 1.0, color: Rgb(10, 20, 30) }), inner: None };
+        let rings = Rings { outer: Some(Ring { fill: 1.0, color: Rgb(10, 20, 30) }), inner: None, number: None };
         let straight = rings.draw(32);
         let icon = argb(&rings, 32);
         assert_eq!((icon.width, icon.height, icon.data.len()), (32, 32, 32 * 32 * 4));

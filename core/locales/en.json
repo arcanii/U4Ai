@@ -14,6 +14,7 @@
     "check_updates": "Check for Updates",
     "quit": "Quit U4Ai",
     "refresh": "Refresh",
+    "show_percent": "Show percentage in the icon",
     "sign_in": "Sign in with {provider}…",
     "sign_out": "Sign out of {account}",
     "start_at_login": "Start automatically at login",

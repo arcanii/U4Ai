@@ -14,6 +14,7 @@
     "check_updates": "업데이트 확인",
     "quit": "U4Ai 종료",
     "refresh": "새로고침",
+    "show_percent": "아이콘에 사용률 표시",
     "sign_in": "{provider}(으)로 로그인…",
     "sign_out": "{account}에서 로그아웃",
     "start_at_login": "로그인 시 자동 시작",

@@ -5,10 +5,23 @@ is built is [docs/design/u4ai.md](docs/design/u4ai.md).
 
 ## Next
 
-- **A popover window** (egui), as the Mac's U4Claude has: the rings large,
-  a row per limit with its reset time, the manual paste for a sign-in whose
-  redirect never came back (`oauth::pasted` reads it already), and
-  settings (refresh mode, alerts, language).
+The user's three, in this order (2026-11-25): the percentage in the icon
+(done, 0.1.1, docs/design/tray-numbers.md), then:
+
+- **A graphical drop-down** (egui), as the Mac's U4Claude has: a left click
+  on the icon opens it (a right click keeps the menu), with the rings
+  large, a row per limit with its reset time, the account switcher,
+  Refresh, the manual paste for a sign-in whose redirect never came back
+  (`oauth::pasted` reads it already), and settings (refresh mode, alerts,
+  language, the number in the icon). On Windows it opens above the icon;
+  on Wayland, where apps can't place their windows, wherever the
+  compositor puts it. The core's loop moves off the main thread, which the
+  window's event loop needs.
+- **A floating display**: a small borderless window with the rings and
+  numbers, always on top, dragged where you like and kept there, turned on
+  and off from the menu; the Mac's desktop widgets' stand-in. On Wayland
+  apps can't keep themselves on top (the window menu's Always on Top can).
+  It reuses the drop-down's window code.
 - **Sparklines**: the Mac's 24-hour history, one NDJSON line a read.
 - **Windows' own toasts** with an AppUserModelID (Flow's
   `windows/src/notify.rs`), in place of the tray's balloons.
