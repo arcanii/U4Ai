@@ -13,7 +13,14 @@ The user's three, in this order (2026-11-25): the percentage in the icon
   large, a row per limit with its reset time, the account switcher,
   Refresh, the manual paste for a sign-in whose redirect never came back
   (`oauth::pasted` reads it already), and settings (refresh mode, alerts,
-  language, the number in the icon). On Windows it opens above the icon;
+  language, the number in the icon). GNOME's AppIndicator extension
+  (Ubuntu's, as of 2026-11-25) decides the clicks itself, whatever
+  `ItemIsMenu` says: a left click opens the menu a double-click's time
+  (400 ms) after it, a second click by then is a double click, and only
+  a double click (`Activate`) or a middle click (`SecondaryActivate`)
+  reaches the app. So on GNOME the drop-down opens on a double click,
+  and its design must say so. KDE goes by `ItemIsMenu`: with it off, a
+  left click is `Activate`. On Windows it opens above the icon;
   on Wayland, where apps can't place their windows, wherever the
   compositor puts it. The core's loop moves off the main thread, which the
   window's event loop needs.

@@ -77,7 +77,10 @@ U4AI_SAY_UPDATES=1 cargo run -- --version
   `version.rs`: stamped by `core/build.rs` (build number = commit count +
   `build_offset`; `U4AI_UPDATES=1` at build time turns the updater on).
 - **linux/**: the tray through ksni (StatusNotifierItem over D-Bus, no
-  GTK), notifications through gdbus/notify-send, Start at login as an XDG
+  GTK; the user is told of no tray only where none answered at the
+  start, `tray::no_tray_at_all`, since GNOME's AppIndicator extension
+  is off while the screen is locked and ksni registers again when it's
+  back; its clicks are in BACKLOG.md's drop-down), notifications through gdbus/notify-send, Start at login as an XDG
   autostart entry, and `updater.rs`, Flow's own Linux updater ported (signed
   tarball, its `install.sh` run into the prefix it was installed in).
 - **windows/**: the tray through Shell_NotifyIconW on a thread with a hidden

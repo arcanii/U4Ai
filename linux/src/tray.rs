@@ -1,9 +1,13 @@
 //! The tray as a StatusNotifierItem (ksni, over D-Bus, without GTK): the
 //! core's rings drawn at the sizes trays ask for, its tooltip, and its menu,
-//! which a left click opens too (there's no popover window yet). Where no
-//! StatusNotifierWatcher answers (GNOME without the AppIndicator
-//! extension), the core is told once (`Event::NoTray`), and the item waits
-//! for one to come.
+//! which a left click opens too (there's no popover window yet; GNOME's
+//! extension opens it a double-click's time after the click, and takes a
+//! second click by then as a double click, which is `activate`). Where no
+//! StatusNotifierWatcher answers at the start (GNOME without the
+//! AppIndicator extension), the core is told (`Event::NoTray`), and the
+//! item waits for one to come. One that goes away later isn't told of:
+//! GNOME turns its extensions off while the screen is locked, and ksni
+//! registers the item again when the watcher comes back.
 
 use ksni::blocking::{Handle, TrayMethods};
 use ksni::menu::{CheckmarkItem, StandardItem};
@@ -84,12 +88,28 @@ impl ksni::Tray for Item {
     }
 
     fn watcher_offline(&self, reason: OfflineReason) -> bool {
-        log::warn!("no StatusNotifierWatcher: {reason:?}");
-        self.waker.send(Event::NoTray);
+        if no_tray_at_all(&reason) {
+            log::warn!("no StatusNotifierWatcher: {reason:?}");
+            self.waker.send(Event::NoTray);
+        } else {
+            log::info!("the StatusNotifierWatcher went away; waiting for it to come back");
+        }
         // Keep the item, for a watcher that comes later (the extension
-        // turned on, the shell restarted).
+        // turned on, the screen unlocked, the shell restarted).
         true
     }
+
+    fn watcher_online(&self) {
+        log::info!("the StatusNotifierWatcher is back");
+    }
+}
+
+/// Whether the watcher being offline means there's no tray to show in,
+/// which the user is told of: none answered as the item registered, or
+/// one refused it. One that was there and went (`OfflineReason::No`) is
+/// a screen lock or a shell restarting, and comes back.
+fn no_tray_at_all(reason: &OfflineReason) -> bool {
+    !matches!(reason, OfflineReason::No)
 }
 
 pub struct Tray {
@@ -147,5 +167,11 @@ mod tests {
         assert_eq!(&icon.data[i..i + 4], &[255, 10, 20, 30]);
         assert_eq!(label("first_last@example.com"), "first__last@example.com");
         assert_eq!(escaped("a<b> & c"), "a&lt;b&gt; &amp; c");
+    }
+
+    #[test]
+    fn a_watcher_that_went_away_isnt_told_of_but_none_at_all_is() {
+        assert!(!no_tray_at_all(&OfflineReason::No));
+        assert!(no_tray_at_all(&OfflineReason::Error(ksni::Error::WontShow)));
     }
 }
