@@ -6,14 +6,14 @@
     <description>Most recent updates to U4Ai for Linux on x86_64</description>
     <language>en</language>
     <item>
-      <title>Version 0.1.0</title>
-      <sparkle:releaseNotesLink>https://github.com/arcanii/U4Ai/releases/tag/v0.1.0-linux</sparkle:releaseNotesLink>
-      <pubDate>Wed, 25 Nov 2026 13:57:01 +0000</pubDate>
-      <enclosure url="https://github.com/arcanii/U4Ai/releases/download/v0.1.0-linux/U4Ai-0.1.0-linux-x86_64.tar.gz"
-                 sparkle:version="2"
-                 sparkle:shortVersionString="0.1.0"
-                 sparkle:edSignature="KRKy50dHBfq/VgTqkUAR/uSSVZ7ovCjqBk/6afU1oejA/83oBvavLodtRJv8FQr1ecjf/HbesPEjmGZhb4FXAw=="
-                 length="4100509"
+      <title>Version 0.1.1</title>
+      <sparkle:releaseNotesLink>https://github.com/arcanii/U4Ai/releases/tag/v0.1.1-linux</sparkle:releaseNotesLink>
+      <pubDate>Wed, 25 Nov 2026 14:17:24 +0000</pubDate>
+      <enclosure url="https://github.com/arcanii/U4Ai/releases/download/v0.1.1-linux/U4Ai-0.1.1-linux-x86_64.tar.gz"
+                 sparkle:version="5"
+                 sparkle:shortVersionString="0.1.1"
+                 sparkle:edSignature="qzv+BidtskiE6tRw0GP4CSHeNy1IE8zU9KJYW5FMKUMncc5wvQ9RskYLXQ8v9JXrhJyuQkYlZ/YsnYKDHQiLAw=="
+                 length="4103142"
                  type="application/gzip"/>
     </item>
   </channel>
