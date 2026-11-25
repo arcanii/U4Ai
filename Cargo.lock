@@ -1840,7 +1840,7 @@ checksum = "b6f5e870be6c3b371b77fe0ee0bafb859fa4964b4404c27de1d380043c4dda20"
 
 [[package]]
 name = "u4ai"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "base64 0.22.1",
@@ -1854,7 +1854,7 @@ dependencies = [
 
 [[package]]
 name = "u4ai-core"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "base64 0.22.1",
  "dirs",
@@ -1872,7 +1872,7 @@ dependencies = [
 
 [[package]]
 name = "u4ai-linux"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "base64 0.22.1",
  "dirs",
@@ -1885,7 +1885,7 @@ dependencies = [
 
 [[package]]
 name = "u4ai-windows"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "log",
  "u4ai-core",
