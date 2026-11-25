@@ -1,0 +1,73 @@
+{
+  "error": {
+    "decoding": "レスポンスデータの解析に失敗しました。認証情報が正しいか確認してください。",
+    "http": "HTTP エラー: {status}",
+    "keyring": "システムのキーリングを読み取れませんでした：{why}",
+    "network": "ネットワークリクエストが失敗しました。インターネット接続を確認してください。",
+    "no_dashboard": "現在のプランでは使用量データを取得できません。無料プランには使用量ダッシュボードがありません。Team/Enterprise の場合は、管理者にメンバー使用量ダッシュボードの有効化を依頼してください。",
+    "rate_limited": "リクエストが多すぎます。しばらくしてから再試行してください",
+    "unauthorized": "認証に失敗しました。認証情報を確認してください"
+  },
+  "menu": {
+    "account": "アカウント",
+    "cancel_sign_in": "サインインをキャンセル",
+    "check_updates": "アップデートを確認",
+    "quit": "U4Aiを終了",
+    "refresh": "更新",
+    "sign_in": "{provider}でサインイン…",
+    "sign_out": "{account}からサインアウト",
+    "start_at_login": "ログイン時に自動起動",
+    "status": "{provider}ステータス",
+    "version": "U4Ai {version}"
+  },
+  "notification": {
+    "no_tray": "システムトレイが見つからないため、U4Aiを表示できません。GNOMEではAppIndicator拡張機能を有効にしてください。",
+    "reset_body": "{limit}の使用量がリセットされました",
+    "reset_title": "使用量リセット",
+    "warning_body": "{limit}が{percent}%の使用量に達しました",
+    "warning_title": "使用量警告"
+  },
+  "sign_in": {
+    "added": "アカウントを追加しました：{account}",
+    "failed": "サインインに失敗しました。もう一度お試しください。",
+    "kept_failed": "サインインしましたが、システムのキーリングに保存できませんでした：{why}",
+    "page_done": "U4Aiにサインインしました。このタブは閉じてかまいません。",
+    "port_busy": "ローカルのサインインコールバックサーバーを起動できませんでした。しばらくしてからもう一度お試しください。",
+    "timed_out": "サインインがタイムアウトしました。もう一度お試しください。",
+    "waiting": "ブラウザでサインインを続けてください"
+  },
+  "update": {
+    "check_failed": "アップデートを確認できませんでした：{error}",
+    "checking": "アップデートを確認中…",
+    "download_failed": "{version}をダウンロードできませんでした：{error}",
+    "install": "U4Ai {version}をインストール",
+    "install_failed": "{version}をインストールできませんでした：{error}",
+    "installing": "U4Ai {version}をインストール中…",
+    "new_version": "新しいバージョンがあります",
+    "no_release": "このコンピュータ（{arch}）向けのリリースはまだありません。",
+    "not_signed": "{version}はU4Aiの鍵で署名されていないため、インストールしませんでした。",
+    "not_writable": "{version}をここにインストールできません：{folder}に書き込めません。このコピーと同じ方法でインストールしてください。",
+    "restart": "再起動して{version}へのアップデートを完了",
+    "up_to_date": "現在のバージョン {version} は最新です。"
+  },
+  "usage": {
+    "account": "{provider} · {account}",
+    "cached": "キャッシュされたデータを表示中 — 更新に失敗しました",
+    "extra": "追加使用量",
+    "extra_off": "未有効",
+    "extra_row": "{limit}: {used} / {total}",
+    "five_hour": "5時間制限",
+    "left_days": "残り{d}日{h}時間",
+    "left_hours": "残り{h}時間{m}分",
+    "left_minutes": "残り{m}分",
+    "loading": "読み込み中...",
+    "model": "7日{model}制限",
+    "not_signed_in": "認証情報が未設定",
+    "opus": "7日Opus制限",
+    "resets_soon": "まもなくリセット",
+    "row": "{limit}: {percent}%",
+    "row_resets": "{limit}: {percent}% · {resets}",
+    "seven_day": "7日間制限",
+    "sonnet": "7日Sonnet制限"
+  }
+}

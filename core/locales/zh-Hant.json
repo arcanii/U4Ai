@@ -1,0 +1,73 @@
+{
+  "error": {
+    "decoding": "解析回應資料失敗，請檢查認證資訊是否正確",
+    "http": "HTTP 錯誤: {status}",
+    "keyring": "無法讀取系統金鑰圈：{why}",
+    "network": "網路請求失敗，請檢查網路連線",
+    "no_dashboard": "目前帳號方案不提供用量資料。免費版沒有用量儀表板；Team/Enterprise 請聯絡管理員開啟成員用量儀表板。",
+    "rate_limited": "請求過於頻繁，請稍後再試",
+    "unauthorized": "認證失敗，請檢查您的憑據"
+  },
+  "menu": {
+    "account": "帳戶",
+    "cancel_sign_in": "取消登入",
+    "check_updates": "檢查更新",
+    "quit": "結束 U4Ai",
+    "refresh": "重新整理",
+    "sign_in": "使用 {provider} 登入…",
+    "sign_out": "登出 {account}",
+    "start_at_login": "登入時自動啟動",
+    "status": "{provider} 狀態頁面",
+    "version": "U4Ai {version}"
+  },
+  "notification": {
+    "no_tray": "找不到系統匣，U4Ai 無處顯示。在 GNOME 上請啟用 AppIndicator 擴充功能。",
+    "reset_body": "{limit} 用量已重設",
+    "reset_title": "用量已重設",
+    "warning_body": "{limit} 已達到 {percent}% 用量",
+    "warning_title": "用量警告"
+  },
+  "sign_in": {
+    "added": "已成功新增帳戶：{account}",
+    "failed": "登入失敗，請重試。",
+    "kept_failed": "已登入，但無法儲存到系統金鑰圈：{why}",
+    "page_done": "已登入 U4Ai。可以關閉此分頁。",
+    "port_busy": "無法啟動本機登入回呼服務，請稍後重試。",
+    "timed_out": "登入逾時，請重試。",
+    "waiting": "請在瀏覽器中繼續登入"
+  },
+  "update": {
+    "check_failed": "無法檢查更新：{error}",
+    "checking": "正在檢查更新…",
+    "download_failed": "無法下載 {version}：{error}",
+    "install": "安裝 U4Ai {version}",
+    "install_failed": "無法安裝 {version}：{error}",
+    "installing": "正在安裝 U4Ai {version}…",
+    "new_version": "發現新版本",
+    "no_release": "尚無適用於此電腦（{arch}）的版本。",
+    "not_signed": "{version} 未使用 U4Ai 的金鑰簽署，因此未安裝。",
+    "not_writable": "無法在此安裝 {version}：U4Ai 無法寫入 {folder}。請依安裝此副本的方式安裝。",
+    "restart": "重新啟動以完成更新到 {version}",
+    "up_to_date": "目前版本 {version} 已是最新版本。"
+  },
+  "usage": {
+    "account": "{provider} · {account}",
+    "cached": "正在顯示快取資料 — 重新整理失敗",
+    "extra": "額外用量",
+    "extra_off": "未啟用",
+    "extra_row": "{limit}：{used} / {total}",
+    "five_hour": "5小時限制",
+    "left_days": "還剩 {d}天{h}小時",
+    "left_hours": "還剩 {h}小時{m}分鐘",
+    "left_minutes": "還剩 {m}分鐘",
+    "loading": "載入中...",
+    "model": "7天{model}限制",
+    "not_signed_in": "未設定認證資訊",
+    "opus": "7天Opus限制",
+    "resets_soon": "即將重設",
+    "row": "{limit}：{percent}%",
+    "row_resets": "{limit}：{percent}% · {resets}",
+    "seven_day": "7天限制",
+    "sonnet": "7天Sonnet限制"
+  }
+}

@@ -1,0 +1,11 @@
+[package]
+name = "u4ai-windows"
+description = "U4Ai on Windows: the tray (Shell_NotifyIconW), its balloons, start at login and WinSparkle"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+u4ai-core = { path = "../core" }
+log.workspace = true
+windows-sys.workspace = true

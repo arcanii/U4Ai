@@ -1,0 +1,18 @@
+[package]
+name = "u4ai-linux"
+description = "U4Ai on Linux: the tray (StatusNotifierItem), notifications, start at login and the updater"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[target.'cfg(target_os = "linux")'.dependencies]
+u4ai-core = { path = "../core" }
+log.workspace = true
+dirs.workspace = true
+ureq = "3"
+# The tray over D-Bus, without GTK: its blocking API on async-io's runtime.
+ksni = { version = "0.3.7", default-features = false, features = ["blocking", "async-io"] }
+
+[dev-dependencies]
+base64.workspace = true
+ed25519-dalek.workspace = true

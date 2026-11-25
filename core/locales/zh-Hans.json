@@ -1,0 +1,73 @@
+{
+  "error": {
+    "decoding": "解析响应数据失败，请检查认证信息是否正确",
+    "http": "HTTP 错误: {status}",
+    "keyring": "无法读取系统密钥环：{why}",
+    "network": "网络请求失败，请检查网络连接",
+    "no_dashboard": "当前账号套餐不提供用量数据。免费版没有用量看板；Team/Enterprise 请联系管理员开启成员用量看板。",
+    "rate_limited": "请求过于频繁，请稍后再试",
+    "unauthorized": "认证失败，请检查您的凭据"
+  },
+  "menu": {
+    "account": "账户",
+    "cancel_sign_in": "取消登录",
+    "check_updates": "检查更新",
+    "quit": "退出 U4Ai",
+    "refresh": "刷新",
+    "sign_in": "使用 {provider} 登录…",
+    "sign_out": "退出 {account}",
+    "start_at_login": "登录时自动启动",
+    "status": "{provider} 状态页面",
+    "version": "U4Ai {version}"
+  },
+  "notification": {
+    "no_tray": "未找到系统托盘，U4Ai 无处显示。在 GNOME 上请启用 AppIndicator 扩展。",
+    "reset_body": "{limit} 用量已重置",
+    "reset_title": "用量已重置",
+    "warning_body": "{limit} 已达到 {percent}% 用量",
+    "warning_title": "用量警告"
+  },
+  "sign_in": {
+    "added": "已成功添加账户：{account}",
+    "failed": "登录失败，请重试。",
+    "kept_failed": "已登录，但无法保存到系统密钥环：{why}",
+    "page_done": "已登录 U4Ai。可以关闭此标签页。",
+    "port_busy": "无法启动本地登录回调服务，请稍后重试。",
+    "timed_out": "登录超时，请重试。",
+    "waiting": "请在浏览器中继续登录"
+  },
+  "update": {
+    "check_failed": "无法检查更新：{error}",
+    "checking": "正在检查更新…",
+    "download_failed": "无法下载 {version}：{error}",
+    "install": "安装 U4Ai {version}",
+    "install_failed": "无法安装 {version}：{error}",
+    "installing": "正在安装 U4Ai {version}…",
+    "new_version": "发现新版本",
+    "no_release": "尚无适用于此电脑（{arch}）的版本。",
+    "not_signed": "{version} 未使用 U4Ai 的密钥签名，因此未安装。",
+    "not_writable": "无法在此安装 {version}：U4Ai 无法写入 {folder}。请按安装此副本的方式安装。",
+    "restart": "重新启动以完成更新到 {version}",
+    "up_to_date": "当前版本 {version} 已是最新版本。"
+  },
+  "usage": {
+    "account": "{provider} · {account}",
+    "cached": "正在显示缓存数据 — 刷新失败",
+    "extra": "额外用量",
+    "extra_off": "未启用",
+    "extra_row": "{limit}：{used} / {total}",
+    "five_hour": "5小时限制",
+    "left_days": "还剩 {d}天{h}小时",
+    "left_hours": "还剩 {h}小时{m}分钟",
+    "left_minutes": "还剩 {m}分钟",
+    "loading": "加载中...",
+    "model": "7天{model}限制",
+    "not_signed_in": "未配置认证信息",
+    "opus": "7天Opus限制",
+    "resets_soon": "即将重置",
+    "row": "{limit}：{percent}%",
+    "row_resets": "{limit}：{percent}% · {resets}",
+    "seven_day": "7天限制",
+    "sonnet": "7天Sonnet限制"
+  }
+}

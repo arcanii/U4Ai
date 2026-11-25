@@ -1,0 +1,73 @@
+{
+  "error": {
+    "decoding": "응답 데이터 파싱 실패, 인증 정보가 올바른지 확인하세요",
+    "http": "HTTP 오류: {status}",
+    "keyring": "시스템 키링을 읽을 수 없습니다: {why}",
+    "network": "네트워크 요청 실패, 네트워크 연결을 확인하세요",
+    "no_dashboard": "현재 요금제에서는 사용량 데이터를 제공하지 않습니다. 무료 플랜에는 사용량 대시보드가 없으며, Team/Enterprise는 관리자에게 멤버 사용량 대시보드 활성화를 요청하세요.",
+    "rate_limited": "요청이 너무 빈번합니다. 잠시 후 다시 시도하세요",
+    "unauthorized": "인증 실패, 자격 증명을 확인하세요"
+  },
+  "menu": {
+    "account": "계정",
+    "cancel_sign_in": "로그인 취소",
+    "check_updates": "업데이트 확인",
+    "quit": "U4Ai 종료",
+    "refresh": "새로고침",
+    "sign_in": "{provider}(으)로 로그인…",
+    "sign_out": "{account}에서 로그아웃",
+    "start_at_login": "로그인 시 자동 시작",
+    "status": "{provider} 상태 페이지",
+    "version": "U4Ai {version}"
+  },
+  "notification": {
+    "no_tray": "시스템 트레이가 없어 U4Ai를 표시할 수 없습니다. GNOME에서는 AppIndicator 확장을 켜세요.",
+    "reset_body": "{limit} 사용량이 재설정되었습니다",
+    "reset_title": "사용량 재설정",
+    "warning_body": "{limit}이(가) {percent}% 사용량에 도달했습니다",
+    "warning_title": "사용량 경고"
+  },
+  "sign_in": {
+    "added": "계정이 추가되었습니다: {account}",
+    "failed": "로그인에 실패했습니다. 다시 시도하세요.",
+    "kept_failed": "로그인했지만 시스템 키링에 저장할 수 없습니다: {why}",
+    "page_done": "U4Ai에 로그인했습니다. 이 탭을 닫아도 됩니다.",
+    "port_busy": "로컬 로그인 콜백 서버를 시작할 수 없습니다. 잠시 후 다시 시도하세요.",
+    "timed_out": "로그인 시간이 초과되었습니다. 다시 시도하세요.",
+    "waiting": "브라우저에서 로그인을 계속하세요"
+  },
+  "update": {
+    "check_failed": "업데이트를 확인할 수 없습니다: {error}",
+    "checking": "업데이트 확인 중…",
+    "download_failed": "{version}을(를) 다운로드할 수 없습니다: {error}",
+    "install": "U4Ai {version} 설치",
+    "install_failed": "{version}을(를) 설치할 수 없습니다: {error}",
+    "installing": "U4Ai {version} 설치 중…",
+    "new_version": "새 버전 발견",
+    "no_release": "이 컴퓨터({arch})용 릴리스가 아직 없습니다.",
+    "not_signed": "{version}은(는) U4Ai의 키로 서명되지 않아 설치하지 않았습니다.",
+    "not_writable": "{version}을(를) 여기에 설치할 수 없습니다: {folder}에 쓸 수 없습니다. 이 사본을 설치한 방법으로 설치하세요.",
+    "restart": "다시 시작하여 {version}(으)로 업데이트 완료",
+    "up_to_date": "현재 버전 {version}는 최신 버전입니다."
+  },
+  "usage": {
+    "account": "{provider} · {account}",
+    "cached": "캐시된 데이터 표시 중 — 새로 고침 실패",
+    "extra": "추가 사용량",
+    "extra_off": "활성화되지 않음",
+    "extra_row": "{limit}: {used} / {total}",
+    "five_hour": "5시간 제한",
+    "left_days": "{d}일 {h}시간 남음",
+    "left_hours": "{h}시간 {m}분 남음",
+    "left_minutes": "{m}분 남음",
+    "loading": "로딩 중...",
+    "model": "7일 {model} 제한",
+    "not_signed_in": "인증 정보 미설정",
+    "opus": "7일 Opus 제한",
+    "resets_soon": "곧 재설정됩니다",
+    "row": "{limit}: {percent}%",
+    "row_resets": "{limit}: {percent}% · {resets}",
+    "seven_day": "7일 제한",
+    "sonnet": "7일 Sonnet 제한"
+  }
+}

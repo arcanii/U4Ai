@@ -1,0 +1,73 @@
+{
+  "error": {
+    "decoding": "Failed to parse response data. Please check if your credentials are correct.",
+    "http": "HTTP error: {status}",
+    "keyring": "The system's keyring couldn't be read: {why}",
+    "network": "Network request failed. Please check your internet connection.",
+    "no_dashboard": "Your plan does not provide usage data. Free accounts have no usage dashboard; on Team/Enterprise, ask an admin to enable the member usage dashboard.",
+    "rate_limited": "Too many requests, please try again later",
+    "unauthorized": "Authentication failed, please check your credentials"
+  },
+  "menu": {
+    "account": "Account",
+    "cancel_sign_in": "Cancel sign-in",
+    "check_updates": "Check for Updates",
+    "quit": "Quit U4Ai",
+    "refresh": "Refresh",
+    "sign_in": "Sign in with {provider}…",
+    "sign_out": "Sign out of {account}",
+    "start_at_login": "Start automatically at login",
+    "status": "{provider} Status",
+    "version": "U4Ai {version}"
+  },
+  "notification": {
+    "no_tray": "No system tray was found, so U4Ai has nowhere to show. On GNOME, turn on the AppIndicator extension.",
+    "reset_body": "{limit} usage has been reset",
+    "reset_title": "Usage Reset",
+    "warning_body": "{limit} has reached {percent}% usage",
+    "warning_title": "Usage Warning"
+  },
+  "sign_in": {
+    "added": "Successfully added account: {account}",
+    "failed": "Sign-in failed. Please try again.",
+    "kept_failed": "Signed in, but the system's keyring wouldn't keep it: {why}",
+    "page_done": "Signed in to U4Ai. You can close this tab.",
+    "port_busy": "Unable to start the local sign-in callback server. Please try again in a moment.",
+    "timed_out": "Sign-in timed out. Please try again.",
+    "waiting": "Continue in your browser"
+  },
+  "update": {
+    "check_failed": "Couldn't check for updates: {error}",
+    "checking": "Checking for updates…",
+    "download_failed": "{version} couldn't be downloaded: {error}",
+    "install": "Install U4Ai {version}",
+    "install_failed": "{version} couldn't be installed: {error}",
+    "installing": "Installing U4Ai {version}…",
+    "new_version": "New Version Available",
+    "no_release": "There is no release for this computer ({arch}) yet.",
+    "not_signed": "{version} isn't signed with U4Ai's key, so it wasn't installed.",
+    "not_writable": "{version} can't be installed here: U4Ai can't write to {folder}. Install it the way you installed this one.",
+    "restart": "Restart to finish updating to {version}",
+    "up_to_date": "Current version {version} is up to date."
+  },
+  "usage": {
+    "account": "{provider} · {account}",
+    "cached": "Showing cached data — refresh failed",
+    "extra": "Extra Usage",
+    "extra_off": "Not Enabled",
+    "extra_row": "{limit}: {used} / {total}",
+    "five_hour": "5-Hour Limit",
+    "left_days": "{d}d {h}h left",
+    "left_hours": "{h}h {m}m left",
+    "left_minutes": "{m}m left",
+    "loading": "Loading...",
+    "model": "7D {model} Limit",
+    "not_signed_in": "Authentication not configured",
+    "opus": "7D Opus Limit",
+    "resets_soon": "Resetting soon",
+    "row": "{limit}: {percent}%",
+    "row_resets": "{limit}: {percent}% · {resets}",
+    "seven_day": "7-Day Limit",
+    "sonnet": "7D Sonnet Limit"
+  }
+}

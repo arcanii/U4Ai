@@ -1,0 +1,81 @@
+# U4Ai is one workspace: the shared core (its providers, Claude the first),
+# a crate per OS (Windows and Linux), and this package, whose `u4ai` binary
+# hands the core the OS crate it was built for, the layout of
+# arcanii/Flow-Terminal. On a Mac, U4Claude is the app, in Swift, in
+# arcanii/Usage4Claude-Arcanii (docs/design/u4ai.md).
+[workspace]
+members = ["core", "windows", "linux"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+# A patch release of `version`, shown as a fourth number (0.1.0.1); 0 for
+# none, and back to 0 when `version` goes up. The updaters still compare
+# `version` and the build number (0.1.0.<build>), which only ever rise.
+#
+# `dev = true` while the work toward `version` goes on: as soon as a
+# release is out, `version` goes up to the next and `dev` to true, so every
+# build says what it's toward, shown as 0.1.0.DEV. Releasing sets it to
+# false, and the release scripts refuse a DEV build but for a test build.
+#
+# `build_offset` is added to the commit count to make the build number
+# (core/build_number.rs), which the updaters compare, so it must only ever
+# rise.
+[workspace.metadata.u4ai]
+patch = 0
+dev = true
+build_offset = 0
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+log = "0.4"
+env_logger = "0.11"
+base64 = "0.22"
+dirs = "6"
+# Checks that an update is signed with the project's key (Linux's updater;
+# WinSparkle checks its own).
+ed25519-dalek = "2"
+# Reset times (RFC 3339) and Retry-After's HTTP dates (RFC 2822's form).
+jiff = { version = "0.2.38", default-features = false, features = ["std"] }
+# The refresh token, in Windows' Credential Manager or the Secret Service.
+keyring = "4"
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_Globalization", "Win32_Graphics_Gdi", "Win32_System_LibraryLoader", "Win32_System_Registry", "Win32_System_Threading", "Win32_UI_Shell", "Win32_UI_WindowsAndMessaging"] }
+
+[package]
+name = "u4ai"
+description = "U4Ai: how much of your AI's usage limits you've used (Claude's first), in the tray on Windows and Linux"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "u4ai"
+path = "src/main.rs"
+
+[dependencies]
+u4ai-core = { path = "core" }
+
+[target.'cfg(windows)'.dependencies]
+u4ai-windows = { path = "windows" }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+u4ai-linux = { path = "linux" }
+
+[dev-dependencies]
+# examples/update_key.rs: makes the update key, signs and checks with it.
+ed25519-dalek.workspace = true
+base64.workspace = true
+getrandom = "0.3"
+# examples/update_key.rs and examples/third_party_notices.rs, which lists
+# the crates in a release for its THIRD-PARTY-NOTICES.txt from cargo
+# metadata's JSON.
+anyhow = "1"
+serde_json.workspace = true
+
+[profile.release]
+lto = "thin"
+codegen-units = 1

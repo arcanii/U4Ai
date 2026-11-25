@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=U4Ai
+GenericName=Claude Usage
+Comment=How much of Claude's usage limits you've used, in the tray
+Exec=u4ai
+Icon=com.arcanii.U4Ai
+Terminal=false
+Categories=Utility;
+Keywords=claude;usage;limits;quota;tray;anthropic;
+StartupNotify=false
+X-GNOME-UsesNotifications=true

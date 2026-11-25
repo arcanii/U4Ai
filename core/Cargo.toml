@@ -1,0 +1,29 @@
+[package]
+name = "u4ai-core"
+description = "U4Ai's core: the providers, sign-in, refresh timing, alerts, the tray as data and the update feed, with no OS calls"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+build = "build.rs"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+log.workspace = true
+env_logger.workspace = true
+base64.workspace = true
+dirs.workspace = true
+ed25519-dalek.workspace = true
+jiff.workspace = true
+keyring.workspace = true
+sha2 = "0.10"
+getrandom = "0.3"
+
+# Windows reaches HTTPS through its own TLS (Schannel), which knows the
+# system's certificates, a company's own among them, and needs no C
+# compiler; elsewhere rustls with its own roots.
+[target.'cfg(windows)'.dependencies]
+ureq = { version = "3", default-features = false, features = ["native-tls", "gzip"] }
+
+[target.'cfg(not(windows))'.dependencies]
+ureq = "3"
