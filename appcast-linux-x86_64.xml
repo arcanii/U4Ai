@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>U4Ai (Linux, x86_64) Updates</title>
+    <link>https://raw.githubusercontent.com/arcanii/U4Ai/main/appcast-linux-x86_64.xml</link>
+    <description>Most recent updates to U4Ai for Linux on x86_64</description>
+    <language>en</language>
+    <item>
+      <title>Version 0.1.0</title>
+      <sparkle:releaseNotesLink>https://github.com/arcanii/U4Ai/releases/tag/v0.1.0-linux</sparkle:releaseNotesLink>
+      <pubDate>Wed, 25 Nov 2026 13:57:01 +0000</pubDate>
+      <enclosure url="https://github.com/arcanii/U4Ai/releases/download/v0.1.0-linux/U4Ai-0.1.0-linux-x86_64.tar.gz"
+                 sparkle:version="2"
+                 sparkle:shortVersionString="0.1.0"
+                 sparkle:edSignature="KRKy50dHBfq/VgTqkUAR/uSSVZ7ovCjqBk/6afU1oejA/83oBvavLodtRJv8FQr1ecjf/HbesPEjmGZhb4FXAw=="
+                 length="4100509"
+                 type="application/gzip"/>
+    </item>
+  </channel>
+</rss>
